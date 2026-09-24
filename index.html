@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Garden Wellness — Transform Your Garden</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:#f8f9fa;color:#1a1a1a;line-height:1.6}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2rem;background:#0b151b;color:#fff}
+    .brand{font-weight:800;font-size:1.1rem;letter-spacing:0.08em}
+    .brand span{color:#2ba88a}
+    .nav-links{display:flex;gap:1.5rem}
+    .nav-links a{color:#95a8b1;text-decoration:none;font-size:0.9rem}
+    .nav-links a:hover{color:#fff}
+
+    .hero{text-align:center;padding:5rem 2rem 4rem;background:linear-gradient(180deg,#0b151b 0%,#162229 100%);color:#fff}
+    .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem}
+    .hero h1 em{font-style:normal;color:#2ba88a}
+    .hero p{color:#95a8b1;font-size:1.15rem;max-width:600px;margin:0 auto 2rem}
+    .hero-cta{display:inline-block;padding:1rem 2.5rem;background:#ffd32a;color:#0b151b;font-weight:700;border-radius:8px;text-decoration:none;font-size:1.05rem}
+    .hero-cta:hover{background:#e6be25}
+
+    .section{max-width:1100px;margin:0 auto;padding:4rem 2rem}
+    .section-title{text-align:center;margin-bottom:3rem}
+    .section-title h2{font-size:2rem;font-weight:800;margin-bottom:0.5rem}
+    .section-title p{color:#666;max-width:500px;margin:0 auto}
+
+    .packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+    .package{background:#fff;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.06);overflow:hidden;position:relative}
+    .package.featured{border:2px solid #ffd32a}
+    .package-badge{position:absolute;top:1rem;right:1rem;background:#ffd32a;color:#0b151b;font-size:0.75rem;font-weight:700;padding:0.3rem 0.8rem;border-radius:4px}
+    .package-header{padding:2rem 2rem 1rem}
+    .package-header h3{font-size:1.5rem;font-weight:800}
+    .package-header .tagline{color:#2ba88a;font-size:0.9rem;margin-top:0.3rem}
+    .package-price{font-size:2rem;font-weight:800;margin:1rem 0}
+    .package-price small{font-size:0.85rem;font-weight:400;color:#888}
+    .package-desc{color:#555;font-size:0.95rem;margin-bottom:1rem}
+
+    .package-items{padding:0 2rem 1.5rem}
+    .package-items h4{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin-bottom:0.8rem}
+    .item{display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:0.6rem;font-size:0.9rem}
+    .item-dot{width:8px;height:8px;border-radius:50%;background:#2ba88a;margin-top:0.45rem;flex-shrink:0}
+    .item strong{display:block;font-size:0.88rem}
+
+    .package-features{padding:1rem 2rem;border-top:1px solid #eee}
+    .package-features ul{list-style:none;padding:0}
+    .package-features li{padding:0.3rem 0;font-size:0.85rem;color:#555}
+    .package-features li::before{content:"\2713 ";color:#2ba88a;font-weight:700}
+
+    .package-footer{padding:1.5rem 2rem}
+    .package-btn{display:block;width:100%;padding:0.9rem;text-align:center;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.2s}
+    .package-btn.primary{background:#ffd32a;color:#0b151b}
+    .package-btn.primary:hover{background:#e6be25}
+    .package-btn.secondary{background:#eef3f2;color:#1a1a1a;border:1px solid #d0d5dd}
+    .package-btn.secondary:hover{background:#dde5e3}
+
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;margin-top:2rem}
+    .feature-card{background:#fff;padding:2rem;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+    .feature-icon{font-size:2rem;margin-bottom:0.8rem}
+    .feature-card h3{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}
+    .feature-card p{color:#666;font-size:0.9rem}
+
+    .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem}
+    .step{text-align:center;padding:1.5rem}
+    .step-num{width:40px;height:40px;border-radius:50%;background:#2ba88a;color:#fff;display:inline-grid;place-items:center;font-weight:800;margin-bottom:1rem}
+    .step h3{font-size:1rem;margin-bottom:0.3rem}
+    .step p{color:#666;font-size:0.85rem}
+
+    .cta-section{text-align:center;padding:5rem 2rem;background:#0b151b;color:#fff}
+    .cta-section h2{font-size:2rem;margin-bottom:1rem}
+    .cta-section p{color:#95a8b1;margin-bottom:2rem}
+
+    footer{padding:2rem;text-align:center;color:#888;font-size:0.85rem;border-top:1px solid #eee}
+
+    @media(max-width:768px){
+      .packages{grid-template-columns:1fr}
+      .nav{flex-direction:column;gap:0.8rem}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">PREMIUM <span>GARDEN</span> WELLNESS</div>
+    <div class="nav-links">
+      <a href="#packages">Packages</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="enquiry/">Enquire Now</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Your Garden.<br>Your <em>Wellness Sanctuary.</em></h1>
+    <p>Sauna pods, cold plunge pools, premium decking, ambient lighting and outdoor showers — designed, supplied and installed as complete garden transformations.</p>
+    <a href="enquiry/" class="hero-cta">Start Your Consultation</a>
+  </section>
+
+  <section class="section" id="packages">
+    <div class="section-title">
+      <h2>Choose Your Package</h2>
+      <p>Three curated tiers to match your space, lifestyle and budget.</p>
+    </div>
+
+    <div class="packages">
+      <!-- ESSENTIAL -->
+      <div class="package">
+        <div class="package-header">
+          <h3>Essential</h3>
+          <div class="tagline">Start your wellness journey</div>
+          <div class="package-price">&pound;8,500 <small>from</small></div>
+          <p class="package-desc">A focused wellness package combining the essentials for daily health improvement.</p>
+        </div>
+        <div class="package-items">
+          <h4>What's included</h4>
+          <div class="item"><div class="item-dot"></div><div><strong>Compact Sauna Pod</strong>2-person infrared sauna with digital controls</div></div>
+          <div class="item"><div class="item-dot"></div><div><strong>Dip Cold Plunge</strong>Compact cold plunge tub with temperature control</div></div>
+          <div class="item"><div class="item-dot"></div><div><strong>Composite Decking Base</strong>3m x 3m composite decking platform</div></div>
+          <div class="item"><div class="item-dot"></div><div><strong>Basic LED Lighting</strong>4x weatherproof LED spotlights with timer</div></div>
+        </div>
+        <div class="package-features">
+          <ul>
+            <li>Professional installation</li>
+            <li>2-year warranty</li>
+            <li>1-hour consultation</li>
+            <li>Site assessment</li>
+          </ul>
+        </div>
+        <div class="package-footer">
+          <a href="enquiry/?package=essential" class="package-btn secondary">Enquire About Essential</a>
+        </div>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="package featured">
+        <div class="package-badge">MOST POPULAR</div>
+        <div class="package-header">
+          <h3>Premium</h3>
+          <div class="tagline">The complete wellness experience</div>
+          <div class="package-price">&pound;18,500 <small>from</small></div>
+          <p class="package-desc">Our most popular package. Full sauna suite with cold plunge, premium decking, ambient lighting, and outdoor shower.</p>
+        </div>
+        <div class="package-items">
+          <h4>What's included</h4>
+          <div class="item"><div class="item-dot"></div><div><strong>Deluxe Sauna Pod</strong>4-person infrared sauna with chromotherapy lighting</div></div>
+          <div class="item"><div class="item-dot"></div><div><strong>Plunge Cold Tub</strong>Full-size cold plunge with chiller unit, 3&deg;C&ndash;15&deg;C</div></div>
+          <div class="item"><div class="item-dot"></div><div><strong>Premium Timber Decking</strong>5m x 4m hardwood decking with built-in drainage</div></div>
+          <div class="item"><div class="item-dot"></div><div><strong>Ambient LED System</strong>8x colour-changing LEDs with app control and timer</div></div>
+          <div class="item"><div class="item-dot"></div><div><strong>Outdoor Rain Shower</strong>Solar-heated outdoor shower with hot/cold mixer</div></div>
+        </div>
+        <div class="package-features">
+          <ul>
+            <li>Professional installation</li>
+            <li>5-year warranty</li>
+            <li>2-hour consultation</li>
+            <li>3D garden design mockup</li>
+            <li>First-year maintenance visit</li>
+          </ul>
+        </div>
+        <div class="package-footer">
+          <a href="enquiry/?package=premium" class="package-btn primary">Enquire About Premium</a>
+        </div>
+      </div>
+
+      <!-- SIGNATURE -->
+      <div class="package">
+        <div class="package-header">
+          <h3>Signature</h3>
+          <div class="tagline">The ultimate garden transformation</div>
+          <div class="package-price">&pound;38,000 <small>from</small></div>
+          <p class="package-desc">A complete luxury wellness transformation. Large sauna suite, professional cold plunge, designer decking, architectural lighting, and premium outdoor shower.</p>
+        </div>
+        <div class="package-items">
+          <h4>What's included</h4>
+          <div class="item"><div class="item-dot"></div><div><strong>Signature Sauna Suite</strong>6-person luxury sauna with panoramic windows, dual heaters</div></div>
+          <div class="item"><div class="item-dot"></div><div><strong>Pro Cold Plunge System</strong>Commercial-grade plunge pool with ozone purification, 2&deg;C&ndash;20&deg;C</div></div>
+          <div class="item"><div class="item-dot"></div><div><strong>Designer Decking &amp; Landscaping</strong>Full-width designer decking with integrated planters and pergola frame</div></div>
+          <div class="item"><div class="item-dot"></div><div><strong>Architectural Lighting</strong>Full LED landscape system with scenes, moonlighting, and path lights</div></div>
+          <div class="item"><div class="item-dot"></div><div><strong>Luxury Outdoor Shower</strong>Brushed steel rainfall shower with digital temperature control</div></div>
+        </div>
+        <div class="package-features">
+          <ul>
+            <li>Full project management</li>
+            <li>10-year warranty</li>
+            <li>4-hour design consultation</li>
+            <li>3D garden walkthrough</li>
+            <li>Annual maintenance for 3 years</li>
+            <li>Priority installation scheduling</li>
+          </ul>
+        </div>
+        <div class="package-footer">
+          <a href="enquiry/?package=signature" class="package-btn secondary">Enquire About Signature</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#eef3f2">
+    <div class="section-title">
+      <h2>Why Premium Garden Wellness?</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F3C5;</div>
+        <h3>End-to-End Service</h3>
+        <p>From initial consultation through design, supply, installation and aftercare — one team, one point of contact.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x2744;&#xFE0F;</div>
+        <h3>Cold Plunge Specialists</h3>
+        <p>Precision-engineered plunge pools with chiller units maintaining temperatures from 2&deg;C to 20&deg;C.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F525;</div>
+        <h3>Sauna Expertise</h3>
+        <p>Infrared and traditional sauna pods from compact 2-person units to luxury 6-person suites with panoramic windows.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x2728;</div>
+        <h3>Smart Lighting</h3>
+        <p>App-controlled ambient lighting systems with colour scenes, timer functions and weatherproof construction.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-it-works">
+    <div class="section-title">
+      <h2>How It Works</h2>
+      <p>From enquiry to installation in four steps.</p>
+    </div>
+    <div class="process">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Enquire</h3>
+        <p>Complete our short enquiry form with your preferences and garden details.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Consult</h3>
+        <p>We schedule a consultation to discuss your space, requirements and budget.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Design &amp; Quote</h3>
+        <p>Receive a detailed 3D mockup and itemised quote for your chosen package.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Install</h3>
+        <p>Our team handles delivery, installation and final walkthrough.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to Transform Your Garden?</h2>
+    <p>Start with a no-obligation consultation. We'll help you choose the right package for your space.</p>
+    <a href="enquiry/" class="hero-cta">Get Started</a>
+  </section>
+
+  <footer>
+    <p>Premium Garden Wellness &mdash; Part of the Guardian 2 Lead Generation System</p>
+  </footer>
+</body>
+</html>

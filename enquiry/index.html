@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquiry — Premium Garden Wellness</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:#f8f9fa;color:#1a1a1a}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2rem;background:#0b151b;color:#fff}
+    .brand{font-weight:800;font-size:1.1rem;letter-spacing:0.08em}
+    .brand span{color:#2ba88a}
+    .back-link{color:#95a8b1;text-decoration:none;font-size:0.9rem}
+
+    .page{max-width:700px;margin:2rem auto;padding:0 1rem}
+    h1{font-size:1.8rem;font-weight:800;margin-bottom:0.5rem}
+    .subtitle{color:#666;margin-bottom:2rem;font-size:1rem}
+
+    .form-card{background:#fff;padding:2rem;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.06)}
+    .section-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;color:#2ba88a;font-weight:700;margin:2rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid #eee}
+    .section-label:first-child{margin-top:0}
+
+    .field{margin-bottom:1rem}
+    .field label{display:block;margin-bottom:0.35rem;font-weight:600;font-size:0.88rem}
+    .field input,.field select,.field textarea{width:100%;padding:0.6rem 0.8rem;border:1px solid #d0d5dd;border-radius:6px;font-size:0.95rem;font-family:inherit}
+    .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:#2ba88a;box-shadow:0 0 0 3px rgba(43,168,138,0.15)}
+    .field select{appearance:auto;background:#fff}
+    .field .hint{font-size:0.8rem;color:#888;margin-top:0.25rem}
+
+    .checkbox-field{display:flex;align-items:flex-start;gap:0.6rem;margin:1rem 0}
+    .checkbox-field input{margin-top:0.3rem;width:auto}
+    .checkbox-field span{font-size:0.88rem;color:#555}
+
+    .btn-row{display:flex;gap:1rem;margin-top:1.5rem}
+    .btn{padding:0.85rem 2rem;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;flex:1;text-align:center;text-decoration:none}
+    .btn-primary{background:#2ba88a;color:#fff}
+    .btn-primary:hover{background:#249a7e}
+    .btn-secondary{background:#eef3f2;color:#1a1a1a;border:1px solid #d0d5dd}
+    .btn-secondary:hover{background:#dde5e3}
+    .btn:disabled{background:#ccc;cursor:not-allowed}
+
+    .error{color:#c53030;font-size:0.9rem;margin-top:0.5rem;display:none;background:#fff5f5;padding:0.8rem;border-radius:6px;border:1px solid #fed7d7}
+    .success{display:none;text-align:center;padding:3rem 1rem}
+    .success h2{color:#2ba88a;margin-bottom:0.5rem;font-size:1.5rem}
+    .success p{color:#666;margin-bottom:1.5rem}
+
+    .quote-preview{display:none;background:#f8f9fa;padding:1.5rem;border-radius:8px;margin-top:1.5rem;border:1px solid #eee}
+    .quote-preview h3{font-size:1.1rem;margin-bottom:0.8rem}
+    .quote-line{display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.9rem;border-bottom:1px solid #eee}
+    .quote-total{font-weight:800;font-size:1.1rem;border-top:2px solid #1a1a1a;margin-top:0.5rem;padding-top:0.5rem}
+    .quote-note{font-size:0.8rem;color:#888;margin-top:0.8rem;font-style:italic}
+
+    footer{padding:2rem;text-align:center;color:#888;font-size:0.85rem;margin-top:3rem;border-top:1px solid #eee}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">PREMIUM <span>GARDEN</span> WELLNESS</div>
+    <a href="../" class="back-link">&larr; Back to packages</a>
+  </nav>
+
+  <div class="page">
+    <h1>Garden Wellness Enquiry</h1>
+    <p class="subtitle">Tell us about your space and preferences. We will schedule a no-obligation consultation.</p>
+
+    <form id="enquiryForm">
+      <div class="form-card">
+
+        <div class="section-label">Your Details</div>
+        <div class="field">
+          <label for="first_name">First name *</label>
+          <input type="text" id="first_name" placeholder="Jane" required>
+        </div>
+        <div class="field">
+          <label for="last_name">Last name *</label>
+          <input type="text" id="last_name" placeholder="Doe" required>
+        </div>
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" placeholder="jane@example.com" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone *</label>
+          <input type="tel" id="phone" placeholder="+44 7700 900123" required>
+        </div>
+
+        <div class="section-label">Package &amp; Property</div>
+        <div class="field">
+          <label for="package_interest">Which package interests you? *</label>
+          <select id="package_interest" required>
+            <option value="">Select a package</option>
+            <option value="essential">Essential (&pound;8,500 from)</option>
+            <option value="premium">Premium (&pound;18,500 from) &mdash; Most Popular</option>
+            <option value="signature">Signature (&pound;38,000 from)</option>
+            <option value="not-sure">Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="property_type">Property type *</label>
+          <select id="property_type" required>
+            <option value="">Select property type</option>
+            <option value="Detached house">Detached house</option>
+            <option value="Semi-detached house">Semi-detached house</option>
+            <option value="Terraced house">Terraced house</option>
+            <option value="Bungalow">Bungalow</option>
+            <option value="Flat / apartment">Flat / apartment</option>
+            <option value="Cottage">Cottage</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="garden_size">Approximate garden size *</label>
+          <select id="garden_size" required>
+            <option value="">Select size</option>
+            <option value="Small (under 20 sq m)">Small (under 20 sq m)</option>
+            <option value="Medium (20-50 sq m)">Medium (20&ndash;50 sq m)</option>
+            <option value="Large (50-100 sq m)">Large (50&ndash;100 sq m)</option>
+            <option value="Very large (100+ sq m)">Very large (100+ sq m)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="budget_range">Budget range *</label>
+          <select id="budget_range" required>
+            <option value="">Select budget</option>
+            <option value="5000-15000">&pound;5,000&ndash;&pound;15,000</option>
+            <option value="15000-30000">&pound;15,000&ndash;&pound;30,000</option>
+            <option value="30000-50000">&pound;30,000&ndash;&pound;50,000</option>
+            <option value="50000+">&pound;50,000+</option>
+          </select>
+        </div>
+
+        <div class="section-label">Additional Details</div>
+        <div class="field">
+          <label for="enquiry_reason">What are you looking for? *</label>
+          <textarea id="enquiry_reason" rows="3" placeholder="Tell us about your vision for the garden..." required></textarea>
+        </div>
+
+        <input type="hidden" id="market" value="UK">
+        <input type="hidden" id="source" value="website">
+        <input type="hidden" id="campaign" value="pgw_enquiry">
+        <input type="hidden" id="landing_page" value="/enquiry">
+
+        <div class="checkbox-field">
+          <input type="checkbox" id="consent" required>
+          <span>I consent to my data being processed for the purpose of evaluating this garden wellness enquiry. I understand I may be contacted about relevant products and services. *</span>
+        </div>
+        <input type="hidden" id="consent_timestamp">
+
+        <div class="error" id="errorMsg"></div>
+        <div class="btn-row">
+          <a href="../" class="btn btn-secondary">Cancel</a>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Submit Enquiry</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="success" id="successMsg">
+      <h2>Thank you for your enquiry!</h2>
+      <p>We will be in touch within 24 hours to schedule your consultation.</p>
+      <div class="quote-preview" id="quotePreview">
+        <h3>Estimated Package Quote</h3>
+        <div id="quoteLines"></div>
+        <div class="quote-note">This is an indicative estimate based on your selections. Your final quote will be confirmed after a site survey and consultation.</div>
+      </div>
+      <a href="../" class="btn btn-primary" style="margin-top:1.5rem;display:inline-block">Back to packages</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Premium Garden Wellness &mdash; Part of the Guardian 2 Lead Generation System</p>
+  </footer>
+
+  <script>
+    // Lead engine endpoint (same infrastructure as bond leads via Google Apps Script)
+    const LEAD_ENDPOINT = "https://script.google.com/macros/s/AKfycbwqjXQ37QCJ4dUihaXwiE2A3JUzGx-kUTOb3rJDh9ngHFjniZbFY2811w6gz2nDeLKMSg/exec";
+
+    // Package pricing for live quote preview
+    const PACKAGES = {
+      essential: {name: "Essential", base: 8500, items: [
+        {name: "Compact Sauna Pod", cost: 2800},
+        {name: "Dip Cold Plunge", cost: 1500},
+        {name: "Composite Decking Base (3m x 3m)", cost: 2200},
+        {name: "Basic LED Lighting (4x spotlights)", cost: 400}
+      ]},
+      premium: {name: "Premium", base: 18500, items: [
+        {name: "Deluxe Sauna Pod", cost: 5200},
+        {name: "Plunge Cold Tub with Chiller", cost: 3800},
+        {name: "Premium Timber Decking (5m x 4m)", cost: 4500},
+        {name: "Ambient LED System (8x lights)", cost: 1200},
+        {name: "Outdoor Rain Shower", cost: 1800}
+      ]},
+      signature: {name: "Signature", base: 38000, items: [
+        {name: "Signature Sauna Suite", cost: 12000},
+        {name: "Pro Cold Plunge System", cost: 8500},
+        {name: "Designer Decking & Landscaping", cost: 8000},
+        {name: "Architectural Lighting System", cost: 4500},
+        {name: "Luxury Outdoor Shower", cost: 3000}
+      ]}
+    };
+
+    // Pre-select package from URL
+    const params = new URLSearchParams(location.search);
+    document.getElementById('source').value = params.get('source') || document.getElementById('source').value;
+    document.getElementById('campaign').value = params.get('campaign') || document.getElementById('campaign').value;
+    document.getElementById('landing_page').value = location.pathname;
+    const pkgParam = params.get('package');
+    if (pkgParam && PACKAGES[pkgParam]) {
+      document.getElementById('package_interest').value = pkgParam;
+    }
+
+    // Consent timestamp
+    const consentCb = document.getElementById('consent');
+    const consentTs = document.getElementById('consent_timestamp');
+    consentCb.addEventListener('change', () => {
+      consentTs.value = consentCb.checked ? new Date().toISOString() : '';
+    });
+
+    // Live quote preview on package change
+    document.getElementById('package_interest').addEventListener('change', function() {
+      const pkg = PACKAGES[this.value];
+      const preview = document.getElementById('quotePreview');
+      const lines = document.getElementById('quoteLines');
+      if (!pkg) {
+        preview.style.display = 'none';
+        return;
+      }
+      let html = '';
+      pkg.items.forEach(item => {
+        html += `<div class="quote-line"><span>${item.name}</span><span>&pound;${item.cost.toLocaleString()}</span></div>`;
+      });
+      html += `<div class="quote-line"><span>Installation &amp; delivery</span><span>Included</span></div>`;
+      html += `<div class="quote-line quote-total"><span>${pkg.name} Package Total</span><span>From &pound;${pkg.base.toLocaleString()}</span></div>`;
+      lines.innerHTML = html;
+    });
+
+    // Trigger initial quote display if pre-selected
+    if (pkgParam && PACKAGES[pkgParam]) {
+      document.getElementById('package_interest').dispatchEvent(new Event('change'));
+    }
+
+    // Form submission
+    document.getElementById('enquiryForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const errorMsg = document.getElementById('errorMsg');
+      const submitBtn = document.getElementById('submitBtn');
+      errorMsg.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const selectedPkg = document.getElementById('package_interest').value;
+
+      const lead = {
+        first_name: document.getElementById('first_name').value.trim(),
+        last_name: document.getElementById('last_name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        market: document.getElementById('market').value,
+        product_interest: 'garden_wellness',
+        package_interest: selectedPkg,
+        property_type: document.getElementById('property_type').value,
+        garden_size: document.getElementById('garden_size').value,
+        budget_range: document.getElementById('budget_range').value,
+        investment_amount_band: PACKAGES[selectedPkg] ? '£' + PACKAGES[selectedPkg].base.toLocaleString() : '',
+        investment_timeframe: '1-3 months',
+        enquiry_reason: document.getElementById('enquiry_reason').value.trim(),
+        consent: consentCb.checked,
+        consent_timestamp: consentTs.value,
+        source: document.getElementById('source').value,
+        campaign: document.getElementById('campaign').value,
+        keyword: 'garden wellness ' + selectedPkg,
+        landing_page: document.getElementById('landing_page').value
+      };
+
+      if (LEAD_ENDPOINT.includes("PASTE_")) {
+        console.warn("Lead backend not configured:", lead);
+        errorMsg.textContent = "Backend not configured. Please contact support.";
+        errorMsg.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Enquiry';
+        return;
+      }
+
+      try {
+        const response = await fetch(LEAD_ENDPOINT, {
+          method: "POST",
+          headers: {"Content-Type":"text/plain;charset=utf-8"},
+          body: JSON.stringify(lead)
+        });
+        const result = await response.json();
+        if (result.ok) {
+          document.getElementById('enquiryForm').style.display = 'none';
+          document.getElementById('successMsg').style.display = 'block';
+          // Show quote preview
+          if (PACKAGES[selectedPkg]) {
+            document.getElementById('quotePreview').style.display = 'block';
+          }
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        } else {
+          errorMsg.textContent = "There was a problem processing your enquiry. Please try again.";
+          errorMsg.style.display = 'block';
+        }
+      } catch (error) {
+        console.error(error);
+        errorMsg.textContent = "Error submitting enquiry. Please check your connection and try again.";
+        errorMsg.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Enquiry';
+      }
+    });
+  </script>
+</body>
+</html>
